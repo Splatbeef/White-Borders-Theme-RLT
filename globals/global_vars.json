@@ -1,0 +1,27 @@
+{
+    "FontNameDefault": "alpine-semibold",
+    "FontSizeDefault": 70,
+    "FontSizeStandings": 120,
+    "FontSizeTeams": 180,
+    "BorderMargin": 100,
+    "ForegroundDefault": "#FFFFFF",
+    "DriversPerRender": 20,
+    "EndIndex": "{{RenderPage}, Converter=NumberAdd, Parameter=1}",
+    "TeamsPerRender": 10,
+    "TeamsPerRenderHalf": 5,
+    "TeamsStart": "{{TeamsPerRender}, Converter=NumberMultiply, Parameter={RenderPage}}",
+    "TeamsEnd": "{{TeamsPerRender}, Converter=NumberMultiply, Parameter={EndIndex}}",
+    "RaceDistanceM": "{{RaceDistance}, Converter=NumberMultiply, Parameter=1000}",
+    "CalStart": "{12, Converter=NumberMultiply, Parameter={RenderPage}}",
+    "CalEnd": "{12, Converter=NumberMultiply, Parameter={EndIndex}}",
+
+    //colors
+    "FirstColor":"#D2B200",
+    "SecondColor":"#AEB6BF",
+    "ThirdColor":"#BA957B",
+    "Purple":"#CC25CC",
+    "PenaltyRed": "F03232",
+    "White":"#FFFFFF",
+    "Black": "#000000"
+
+}

@@ -1,0 +1,92 @@
+{
+    "Properties":[
+        {
+            "Name": "ChampionshipType",
+            "PublicName": "Championship Type",
+            "Description": "Changes the logos based on what championship you are running",
+            "Type": "Enum",
+            "EnumValues": ["Generic", "ACC GT3", "F1 2024", "F1 2023", "Super Formula"],
+            "DefaultValue" : "Generic",
+            "Category": "General"
+        },
+        {
+            "Name": "RenderPage",
+            "PublicName": "Render Page",
+            "Description": "Changes the page of the render. Drover-based renders have 20 per page, team-based renders have 10. Default is 0 (top 20 drivers, top 10 teams)",
+            "Type": "Integer",
+            "DefaultValue": 0,
+            "Category": "General"
+        },
+        {
+            "Name": "ConstructorsTeams",
+            "PublicName": "Constructors' Championship",
+            "Description": "Enable if there is a Constructors' Championship, disable if there is a Teams' Championship",
+            "Type": "Bool",
+            "DefaultValue": true,
+            "Category": "General"
+        },
+        {
+            "Name": "AddSponsors",
+            "PublicName": "Add sponsors/league logos",
+            "Description": "If true: adds the league logos. You can add these manually. If false: used the default series logos and a blank border",
+            "Type": "Bool",
+            "DefaultValue": false,
+            "Category": "General"
+        },
+        {
+            "Name": "UseTeamName",
+            "PublicName": "Use team/car names",
+            "Description": "In results renders: use full team names/use car names. If disabled, uses team abbreviations/no car name (only logo)",
+            "Type": "Bool",
+            "DefaultValue": false,
+            "Category": "General"
+        },
+        {
+            "Name": "UseRealName",
+            "PublicName": "Use driver real names",
+            "Description": "Replaces the driver name with the driver real name",
+            "Type": "Bool",
+            "DefaultValue": false,
+            "Category": "General"
+        },
+        {
+            "Name": "ReservesSoloDrivers",
+            "PublicName": "Reserves are Solo Drivers",
+            "Description": "Changes the reserves render to act like they are teamless fulltime drivers",
+            "Type": "Bool",
+            "DefaultValue": false,
+            "Category": "General"
+        },
+        {
+            "Name": "RaceDistance",
+            "PublicName": "Race Distance (KM)",
+            "Description": "Fill in the race distance in KM. This gets converted to laps. Default is 305, a full distance F1 Grand Prix",
+            "Type": "Integer",
+            "DefaultValue": 305,
+            "Category": "Event Information"
+        },
+        {
+            "Name": "RaceLength",
+            "PublicName": "Race Length (alternative)",
+            "Description": "Overrides the race distance value above. Leave empty if you want to use the race distance in KM",
+            "Type": "String",
+            "Category": "Event Information"
+        },
+        {
+            "Name": "FuelInfo",
+            "PublicName": "Recommended Fuel",
+            "Description": "Adds a recommended fuel value to the event info render. Leave at 0 to disable",
+            "Type": "Integer",
+            "DefaultValue": 0,
+            "Category": "Event Information"
+        }
+    ],
+    "Categories": [
+        {
+            "Name": "General"
+        },
+        {
+            "Name": "Event Information"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+  "ThemeId": "splatbeef.whiteborders",
+  "Name": "White Borders",
+  "Author": "Splatbeef",
+  "Description": "Theme for use in various championships",
+  "Version": "1.0.0",
+  "Links": [
+    {
+      "Type": "General",
+      "Url": "https://discord.gg/JhCSWqMFp4",
+      "Caption": "Join DRC"
+    }
+  ]
+}
