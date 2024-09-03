@@ -1,0 +1,18 @@
+{
+    "BlockRoot": {
+        "Name": "root",
+        "BlockType": "stack",
+        "Items": [
+            {
+                "Name": "bg",
+                "BlockType": "image", 
+                "Source": "bg/{ChampionshipType}/bg1.png",
+                "Height": 4000,
+                "Width": 3000,
+                "ColorizeBackground": {
+                    "Color": "#FFFFFF"
+                }
+            }
+        ]
+    }
+}

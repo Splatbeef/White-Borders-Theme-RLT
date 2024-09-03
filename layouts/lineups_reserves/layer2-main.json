@@ -1,0 +1,118 @@
+{
+    "BlockRoot": {
+        "BlockType": "stack",
+        "Orientation": "Vertical",
+        "Margin": "185",
+        "MarginTop": 120,
+        "Spacing": 20,
+        "Items": [
+            //Header
+            {
+                "BlockType": "image",
+                "Source": "league_logos/{ChampionshipType}/leaguelogo.png",
+                "HorizontalAlignment": "Left",
+                "Height": 684,
+                "MaxWidth": 2631,
+                "Triggers": [
+                    {
+                        "Condition": "{AddSponsors, Converter=BoolReverse}",
+                        "Setters": [
+                            {
+                                "Property": "Source",
+                                "Value": "league_logos/{ChampionshipType}/serieslogo.png"
+                            }
+                        ]
+    
+                    }
+                ]
+            },
+            {
+                "BlockType": "text",
+                "Source": "Reserves Line-up",
+                "HorizontalAlignment": "Center",
+                "FontSize": 200,
+                "Triggers": [
+                    {
+                        "Condition": "{BlackHeaders}",
+                        "Property": "Foreground",
+                        "Value": "{Black}"
+                    },
+                    {
+                        "Condition": "{ReservesSoloDrivers}",
+                        "Property": "Source",
+                        "Value": "Solo Drivers Line-up"
+                    }
+                ]
+            },
+            {
+                "BlockType": "shape",
+                "Width": 2631,
+                "Height": 20,
+                "ShapeOptions": {
+                    "ShapeType": "rectangle",
+                    "Fill": "{White}",
+                    "Triggers": [
+                        {
+                            "Condition": "{BlackHeaders}",
+                            "Property": "Fill",
+                            "Value": "{Black}"
+                        }
+                    ]
+                }
+            },
+            {
+                "BlockType": "itemstack",
+                "Orientation": "Vertical",
+                "ItemStackOptions": {
+                    "ItemSource": "{Lineups.LineupsReserves}",
+                    "IndexStart": "{DriversPerRender, Converter=NumberMultiply, Parameter={RenderPage}}", 
+                    "Limit": 10,
+                    "ItemTemplate": {
+                        "BlockType": "dock",
+                        "Width": 2631,
+                        "Spacing": 20,
+                        "Items": [
+                            {
+                                "BlockType": "image",
+                                "Source": "{Item.Driver.Nationality.LogotypePath}",
+                                "VerticalAlignment": "Center",
+                                "HorizontalAlignment": "Left",
+                                "Height": 250,
+                                "MaxWidth": 350
+                            },
+                            {
+                                "BlockType": "text",
+                                "Source": "{Item.Driver.Name}",
+                                "Height": 250,
+                                "MarginLeft": 30,
+                                "FontSize": 120,
+                                "MaxWidth": 2021,
+                                "TextOptions": {
+                                    "VerticalAlignment": "Center"
+                                },
+                                "Triggers": [
+                                    {
+                                        "Condition": "{UseRealName}",
+                                        "Property": "Source",
+                                        "Value": "{Item.Driver.RealName}"
+                                    }
+                                ]
+                            },
+                            {
+                                "BlockType": "text",
+                                "Source": "#{Item.Driver.RaceNumber}",
+                                "FontSize": 120,
+                                "HorizontalAlignment": "Right",
+                                "Height": 250,
+                                "Width": 350,
+                                "TextOptions": {
+                                    "VerticalAlignment": "Center"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,63 @@
+{
+    "BlockRoot": {
+        "name": "mainStack",
+        "BlockType": "stack",
+        "Orientation": "Vertical",
+        "Spacing": 20,
+        "Margin": "185",
+        "MarginTop": 120,
+        "Items": [
+            //Header
+            {
+                "BlockType": "component",
+                "Component": "CalendarHeader"
+            },
+            //Calendar
+            {
+                "BlockType": "itemstack",
+                "Orientation": "Vertical",
+                "ItemStackOptions": {
+                    "ItemSource": "{Events.Events}",
+                    "IndexStart": "{CalStart}", 
+                    "Limit": "{CalEnd}",
+                    "ItemTemplate": {
+                        "BlockType": "dock",
+                        "Orientation": "Horizontal",
+                        "Width": 2631,
+                        "Items": [
+                            {
+                                "BlockType": "text",
+                                "Source": "R{Item.Position}",
+                                "FontSize": 200,
+                                "Width": 400
+                            },
+                            {
+                                "BlockType": "image",
+                                "Source": "{Item.Track.Nation.LogotypePath}",
+                                "Height": 200,
+                                "VerticalAlignment": "Center"
+                            },
+                            {
+                                "BlockType": "text",
+                                "Source": "{Item.Track.CircuitName}",
+                                "FontSize": 150,
+                                "VerticalAlignment": "Center",
+                                "MarginLeft": 50
+                            },
+                            {
+                                "Name": "Date",
+                                "BlockType": "text",
+                                "HorizontalAlignment": "Right",
+                                "Source": "{Item.Date, Converter=DateToDayOfMonth}-{Item.Date, Converter=DateToMonth}",
+                                "Foreground": "{White}",
+                                "FontSize": 150,
+                                "MarginLeft": 50
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+
+}

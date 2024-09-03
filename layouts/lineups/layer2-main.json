@@ -1,0 +1,133 @@
+{
+    "BlockRoot": {
+        "Name": "mainStack",
+        "BlockType": "stack",
+                "Orientation": "Vertical",
+                "MarginBottom": 50,
+                "Width": 5689,
+                "Margin": "200",
+                "Items": [
+                    {
+                        "BlockType": "dock",
+                        "Orientation": "Horizontal",
+                        "Spacing": 20,
+                        "MarginBottom": 50,
+                        "Items": [
+                            {
+                                "BlockType": "image",
+                                "Source": "league_logos/{ChampionshipType}/leaguelogo.png",
+                                "HorizontalAlignment": "Left",
+                                "Height": 800,
+                                "Triggers": [
+                                    {
+                                        "Condition": "{AddSponsors, Converter=BoolReverse}",
+                                        "Setters": [
+                                            {
+                                                "Property": "Source",
+                                                "Value": "league_logos/{ChampionshipType}/serieslogo.png"
+                                            }
+                                        ]
+                    
+                                    }
+                                ]
+                            },
+                            {
+                                "BlockType": "dock",
+                                "Orientation": "Vertical",
+                                "HorizontalAlignment": "Right",
+                                //"MarginLeft": 100,
+                                "Items": [
+                                    {
+                                        "BlockType": "text",
+                                        "Source": "Driver",
+                                        "FontSize": 360,
+                                        "HorizontalAlignment": "Right",
+                                        "Triggers": [
+                                            {
+                                                "Condition": "{BlackHeaders}",
+                                                "Property": "Foreground",
+                                                "Value": "{Black}"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "BlockType": "text",
+                                        "Source": "Line-ups",
+                                        "VerticalAlignment": "Bottom",
+                                        "FontSize": 360,
+                                        "Height": 440,
+                                        "TextOptions": {
+                                            "VerticalAlignment": "Top"
+                                        },
+                                        "Triggers": [
+                                            {
+                                                "Condition": "{BlackHeaders}",
+                                                "Property": "Foreground",
+                                                "Value": "{Black}"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "BlockType": "shape",
+                            "Height": 20,
+                            "Width": 5689,
+                            "ShapeOptions": {
+                                "ShapeType": "rectangle",
+                                "Fill": "{White}",
+                                "Triggers": [
+                                    {
+                                        "Condition": "{BlackHeaders}",
+                                        "Property": "Fill",
+                                        "Value": "{Black}"
+                                    }
+                                ]
+                            }
+                    },
+                    {
+                        "Name": "lineupsstack",
+                        "BlockType": "stack",
+                        "Orientation": "Horizontal",
+                        "Spacing": 20,
+                        "MarginTop": 50,
+                        "Items": [
+                            {
+                                "Name": "itemstack1",
+                                "BlockType": "itemstack",
+                                "Orientation": "Vertical",
+                                "Width": 2834,
+                                "Spacing": 50,
+                                "ItemStackOptions": {
+                                    "ItemSource": "{Lineups.Teams}",
+                                    "IndexStart": "{TeamsStart}", 
+                                    "Limit": 5,
+                                    "ItemTemplate": {
+                                        "BlockType": "component",
+                                        "Component": "LineupComponent"
+                                    }
+                                }
+                            },
+                            {
+                                "Name": "itemstack2",
+                                "BlockType": "itemstack",
+                                "Orientation": "Vertical",
+                                "Width": 2834,
+                                "Spacing": 50,
+                                "ItemStackOptions": {
+                                    "ItemSource": "{Lineups.Teams}",
+                                    "IndexStart": "{{TeamsStart}, Converter=NumberAdd, Parameter=5}",
+                                    "Limit": 5,
+                                    "ItemTemplate": {
+                                        "BlockType": "component",
+                                        "Component": "LineupComponent"
+                                    }
+                                }
+                            }
+                        ]
+                    }    
+        ]
+    }
+}

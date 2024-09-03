@@ -1,0 +1,226 @@
+{
+    "BlockRoot": {
+        "name": "mainStack",
+        "BlockType": "stack",
+        "Orientation": "Vertical",
+        "Width": 5689,
+        "Spacing": 20,
+        "Margin": "250",
+        "MarginTop": 200,
+        "marginBottom": 50,
+        "Items": [
+            //header block
+            {
+                "Name": "Header",
+                "BlockType": "component",
+                "Component": "StandingsHeader",
+                "ComponentOptions": {
+                    "Vars": {
+                        "Type": "Teams'"
+                    }
+                }
+            },
+            {
+                "Name": "main table",
+                "BlockType": "table",
+                "TableOptions": {
+                    "ItemsSource": "{Standings.Teams}",
+                    "RowSpacing": 20,
+                    "ColSpacing": 20,
+                    "RowHeight": 260,
+                    "IndexStart": "{TeamsStart}", 
+                    "Limit": "{TeamsEnd}",
+                    "HeaderTemplate": {
+                        "BlockType": "text",
+                        "FontName": "{FontNameDefault}",
+                        "FontSize": 100,
+                        "MarginBottom": 8,
+                        "Triggers": [
+                            {
+                                "Condition": "{BlackText}",
+                                "Setters": [
+                                    {
+                                        "Property": "Foreground",
+                                        "Value": "{Black}"
+                                    }
+                                ]
+        
+                            }
+                        ],
+                        "TextOptions":{
+                            "HorizontalOrientation": "Center"
+                        }
+
+                    },
+                    "Columns": [
+                        {
+                            "Header": "",
+                            "Width": 400,
+                            "Template": {
+                                "BlockType": "component",
+                                "Component": "PositionCellComponent",
+                                "ComponentOptions": {
+                                "Vars": {
+                                    "position": "{Item.PositionString}",
+                                    "colorquali": false,
+                                    "Fontsize": "{FontSizeTeams}"
+                                }
+                            }
+                            }
+    
+                        },
+                        // Team
+                        {
+                            "Name": "TeamName",
+                            "Header": "",
+                            "Template": {
+                                "BlockType": "component",
+                                "Component": "TeamCellComponent"
+                            }                            
+                        },
+                        // Points
+                        {
+                            "Header": "Pts",
+                            "MarginLeft": 50,
+                            "Template": {  
+                                    "BlockType": "text",
+                                    "Source": "{Item.Points}",
+                                    "HorizontalAlignment": "Center",
+                                    "VerticalAlignment": "Center",
+                                    "FontSize": "{FontSizeTeams}",
+                                    "Triggers": [
+                                        {
+                                            "Condition": "{Item.Position}",
+                                            "ConditionValue": 1,
+                                            "Setters": [
+                                                {
+                                                    "Property": "Foreground",
+                                                    "Value": "{FirstColor}"
+                                                },
+                                                {
+                                                    "Property": "FontSize",
+                                                    "Value": 200
+                                                }
+                                            ]                                            
+                                        },
+                                        {
+                                            "Condition": "{BlackText}",
+                                            "Setters": [
+                                                {
+                                                    "Property": "Foreground",
+                                                    "Value": "{Black}"
+                                                }
+                                            ]
+                    
+                                        }
+                                    ]
+                                }
+                        },
+                        // Points to leader
+                        {
+                            "Name": "pointsleader",
+                            "Header": "",
+                            "Template": {
+                                "BlockType": "text",
+                                "Source": "+{Item.PointsToLeaderDiff}",
+                                "FontSize": "{FontSizeTeams}",
+                                "Triggers": [
+                                    {
+                                        "Condition": "{Item.PointsToLeaderDiff}",
+                                        "ConditionValue": "",
+                                        "Property": "Source",
+                                        "Value": ""
+                                    },
+                                    {
+                                        "Condition": "{BlackText}",
+                                        "Setters": [
+                                            {
+                                                "Property": "Foreground",
+                                                "Value": "{Black}"
+                                            }
+                                        ]
+                
+                                    }
+                                ]
+                            }
+                        },
+                        // Wins, P2, P3, Poles
+                        {
+                            "Header": "P1",
+                            "Template": {
+                                "BlockType": "text",
+                                "Source": "{Item.CountP1}",
+                                "FontSize": "{FontSizeTeams}",
+                                "Foreground": "{FirstColor}",
+                                "RenderIf": "{Item.CountP1, Converter=NumberNotEquals, Parameter=0}"
+                            }
+                        },
+                        {
+                            "Header": "P2",
+                            "Template": {
+                                "BlockType": "text",
+                                "Source": "{Item.CountP2}",
+                                "FontSize": "{FontSizeTeams}",
+                                "Foreground": "{SecondColor}",
+                                "RenderIf": "{Item.CountP2, Converter=NumberNotEquals, Parameter=0}"
+                            }
+                        },
+                        {
+                            "Header": "P3",
+                            "Template": {
+                                "BlockType": "text",
+                                "Source": "{Item.CountP3}",
+                                "FontSize": "{FontSizeTeams}",
+                                "Foreground": "{ThirdColor}",
+                                "RenderIf": "{Item.CountP3, Converter=NumberNotEquals, Parameter=0}"
+                            }
+                        },
+                        {
+                            "Header": "Poles",
+                            "Template": {
+                                "BlockType": "text",
+                                "Source": "{Item.CountQualP1}",
+                                "FontSize": "{FontSizeTeams}",
+                                "Foreground": "{Purple}",
+                                "RenderIf": "{Item.CountQualP1, Converter=NumberNotEquals, Parameter=0}"
+                            }
+                        },
+                        {
+                            "Header": "DNF",
+                            "Template":{
+                                "BlockType": "text",
+                                "Source": "{Item.CountDnf}",
+                                "FontSize": "{FontSizeTeams}",
+                                "Foreground": "{PenaltyRed}",
+                                "RenderIf": "{Item.CountDnf, Converter=NumberNotEquals, Parameter=0}"
+                            }
+
+                        },
+                        {
+                            "Header": "Top 10",
+                            "Template":{
+                                "BlockType": "text",
+                                "Source": "{Item.CountTop10}",
+                                "FontSize": "{FontSizeTeams}",
+                                "RenderIf": "{Item.CountTop10, Converter=NumberNotEquals, Parameter=0}",
+                                "Triggers": [
+                                    {
+                                        "Condition": "{BlackText}",
+                                        "Setters": [
+                                            {
+                                                "Property": "Foreground",
+                                                "Value": "{Black}"
+                                            }
+                                        ]
+                
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+
+}

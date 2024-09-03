@@ -1,0 +1,215 @@
+{
+    "BlockRoot": {
+        "BlockType": "stack",
+        "Orientation": "Vertical",
+        "MarginTop": 200,
+        "Margin": "200",
+        "Items": [
+            {
+                "BlockType": "itemstack",
+                "ItemStackOptions": {
+                    "ItemSource": "{Events.Events}",
+                    "FilterMember": "CompletedStatus",
+                    "FilterMemberValue": "InFuture",
+                    "Limit": 1,
+                    "ItemTemplate": {
+                        "BlockType": "stack",
+                        "Orientation": "Vertical",
+                        "Items": [
+                            {
+                                "BlockType": "dock",
+                                "Orientation": "Horizontal",
+                                "Items": [
+                                    {
+                                        "BlockType": "image",
+                                        "Source": "league_logos/{ChampionshipType}/leaguelogo.png",
+                                        "HorizontalAlignment": "Left",
+                                        "MarginLeft": 50,
+                                        "Height": 800,
+                                        "Triggers": [
+                                            {
+                                                "Condition": "{AddSponsors, Converter=BoolReverse}",
+                                                "Setters": [
+                                                    {
+                                                        "Property": "Source",
+                                                        "Value": "league_logos/{ChampionshipType}/serieslogo.png"
+                                                    }
+                                                ]
+                            
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "BlockType": "stack",
+                                        "Orientation": "Vertical",
+                                        "HorizontalAlignment": "Right",
+                                        //"MarginRight": 150,
+                                        "Items": [
+                                            {
+                                                "Name": "Round",
+                                                "BlockType": "text",
+                                                "HorizontalAlignment": "Right",
+                                                "Source": "Round {Item.Position} of {Season.SeasonOverallNumberEvents}",
+                                                "Foreground": "{White}",
+                                                "FontSize": 200,
+                                                "MarginLeft": 50
+                                            },
+                                            {
+                                                "Name": "Date",
+                                                "BlockType": "text",
+                                                "HorizontalAlignment": "Right",
+                                                "Source": "{Item.Date, Converter=DateToDayOfMonth}-{Item.Date, Converter=DateToMonth}-{Item.Date, Converter=DateToYear}",
+                                                "Foreground": "{White}",
+                                                "FontSize": 200,
+                                                "MarginLeft": 50
+                                            },
+                                            {
+                                                "Name": "Time",
+                                                "BlockType": "text",
+                                                "HorizontalAlignment": "Right",
+                                                "Source": "{Item.Date, Converter=DateToTime} BST",
+                                                "Foreground": "{White}",
+                                                "FontSize": 200,
+                                                "MarginLeft": 50
+                                            }
+                                        ]
+                                    }
+                                    
+                                ]
+                            },
+                            {
+                                "BlockType": "shape",
+                                    "Height": 20,
+                                    "Width": 5789,
+                                    "MarginTop": 50,
+                                    "MarginBottom": 50,
+                                    "HorizontalAlignment": "Center",
+                                    "ShapeOptions": {
+                                        "ShapeType": "rectangle",
+                                        "Fill": "{White}",
+                                        "Triggers": [
+                                            {
+                                                "Condition": "{BlackHeaders}",
+                                                "Property": "Fill",
+                                                "Value": "{Black}"
+                                            }
+                                        ]
+                                    }
+                            },
+                            {
+                                "BlockType": "stack",
+                                "Orientation": "Horizontal",
+                                "MarginLeft": 100,
+                                "Spacing": 50,
+                                "Items": [
+                                    {
+                                        "BlockType": "image",
+                                        "Source": "{Item.Track.Nation.LogotypePath}",
+                                        "HorizontalAlignment": "Left",
+                                        "VerticalAlignment": "Top"
+                                    },
+                                    {
+                                        "Name": "Track",
+                                        "BlockType": "text",
+                                        "Source": "{Item.Track.CircuitFullName}",
+                                        "FontSize": 250,
+                                        "VerticalAlignment": "Center"
+                                    }
+                                ]
+                            },
+                            
+                            {
+                                "BlockType": "dock",
+                                "Height": "*",
+                                "MarginTop": 50,
+                                "Orientation": "Horizontal",
+                                "Items": [
+                                    {
+                                        "Name": "mapstack",
+                                        "BlockType": "stack",
+                                        "Width": 4000,
+                                        "Orientation": "Vertical",
+                                        "Items": [
+                                            {
+                                                "Name": "Map",
+                                                "BlockType": "image",
+                                                "ImageOptions": {
+                                                    "Path": "{Item.Track.LogotypePath}"
+                                                },
+                                                "Width": 4000,
+                                                "MaxHeight": 2400,
+                                                "VerticalAlignment": "Top",
+                                                "HorizontalAlignment": "Center"
+                                            }
+                                        ]
+                                    },                                    
+                                    {
+                                        "BlockType": "stack",
+                                        "Orientation": "Vertical",
+                                        "HorizontalAlignment": "Right",
+                                        "MarginLeft": 50,
+                                        "Spacing": 20,
+                                        "Items": [
+                                            {
+                                                "BlockType": "text",
+                                                "Source": "Circuit Info:",
+                                                "FontSize": 150
+                                            },
+                                            {
+                                                "BlockType": "text",
+                                                "Source": "Length: {Item.Track.Length}m",
+                                                "FontSize": 150
+                                            },
+                                            {
+                                                "BlockType": "text",
+                                                "Source": "Turns: {Item.Track.NumberTurns}",
+                                                "FontSize": 150
+                                            },
+                                            {
+                                                "BlockType": "text",
+                                                "Source": "Lap Record:",
+                                                "FontSize": 150,
+                                                "MarginTop": 50
+                                            },
+                                            {
+                                                "BlockType": "text",
+                                                "Source": "{Item.Track.RaceLapRecordTime}",
+                                                "FontSize": 150
+                                            },
+                                            {
+                                                "BlockType": "text",
+                                                "Source": "Race Info:",
+                                                "MarginTop": 50,
+                                                "FontSize": 150
+                                            },
+                                            {
+                                                "BlockType": "text",
+                                                "Source": "{{RaceDistanceM}, Converter=NumberDivide, Parameter={Item.Track.Length}} Laps",
+                                                "FontSize": 150,
+                                                "Triggers": [
+                                                    {
+                                                        "Condition": "{RaceLength, Converter=EmptyObjectToFalse}",
+                                                        "Property": "Source",
+                                                        "Value": "{RaceLength}"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "BlockType": "text",
+                                                "Source": "Rec. Fuel: {FuelInfo}l",
+                                                "FontSize": 150,
+                                                "RenderIf": "{FuelInfo, Converter=NumberNotEquals, Parameter=0}"
+                                            }
+                                        ]
+                                    }
+                                    
+                                ]
+                            }
+                            
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

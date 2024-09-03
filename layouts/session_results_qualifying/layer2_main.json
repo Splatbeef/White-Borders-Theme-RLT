@@ -1,0 +1,201 @@
+{
+    "BlockRoot": {
+        "name": "mainStack",
+        "BlockType": "stack",
+        "Orientation": "Vertical",
+        "Spacing": 20,
+        "Margin": "185",
+        "MarginTop": 120,
+        "Items": [
+            //season and session block
+            {
+                "BlockType": "component",
+                "Component": "SessionHeader",
+                "ComponentOptions":{
+                    "Vars": {
+                        "round": "{Event.Position}",
+                        "session": "{Session}"
+                    }
+                }
+            },
+            //Results table
+            {
+                "Name": "Results_Table",
+                "BlockType": "table",
+                "TableOptions": {
+                    "ItemsSource": "{Session.Drivers}",
+                    "RowSpacing": 20,
+                    "ColSpacing": 20,
+                    "RowHeight": 100,
+                    "IndexStart": "{DriversPerRender, Converter=NumberMultiply, Parameter={RenderPage}}", 
+                    "Limit": "{DriversPerRender, Converter=NumberMultiply, Parameter={EndIndex}}",
+                    "HeaderTemplate": {
+                        "BlockType": "text",
+                        "FontName": "{FontNameDefault}",
+                        "FontSize": 100,
+                        "MarginBottom": 8,
+                        "Triggers": [
+                            {
+                                "Condition": "{BlackText}",
+                                "Setters": [
+                                    {
+                                        "Property": "Foreground",
+                                        "Value": "{Black}"
+                                    }
+                                ]
+        
+                            }
+                        ],
+                        "TextOptions":{
+                            "HorizontalOrientation": "Center"
+                        }
+
+                    },
+                    "Columns":[
+                        // Position
+                        {
+                            "Header": "",
+                            "Width": 180,
+                            "Template": {
+                                "BlockType": "component",
+                                "Component": "PositionCellComponent",
+                                "ComponentOptions": {
+                                "Vars": {
+                                    "position": "{Item.PositionString}",
+                                    "colortop3": false,
+                                    "Fontsize": 90
+                                }
+                            }
+                            }
+    
+                        },
+                        // Driver
+                        {
+                            "Header": "",
+                            "Width": "*",
+                            "Template": {
+                                "BlockType": "component",
+                                "Component": "DriverLineComponent"
+                                //"WidthStretch": true,
+                            }
+                        },
+                        // Time
+                        {
+                            "Header": "[Time]",
+                            "Width" : 370,
+                            "Template": {
+                                "Padding": "12, 0",
+                                "BlockType": "text",
+                                "Source": "{Item.AbsoluteTime}",
+                                "HorizontalAlignment": "Left",
+                                "Triggers": [
+                                    {
+                                        "Condition": "{BlackText}",
+                                        "Setters": [
+                                            {
+                                                "Property": "Foreground",
+                                                "Value": "{Black}"
+                                            }
+                                        ]
+                
+                                    },
+                                    {
+                                        "Condition": "{Item.Position}",
+                                        "ConditionValue": 1,
+                                        "Setters": [
+                                            {
+                                                "Property": "Foreground",
+                                                "Value": "{Purple}"
+                                            },
+                                            {
+                                                "Property": "FontSize",
+                                                "Value": 80
+                                            }
+                                        ]
+                                        
+                                    }
+                                ],
+                                "TextOptions": {
+                                    "FontName": "{FontNameDefault}",
+                                    "HorizontalAlignment": "Center"
+                                }
+                            }
+                        },
+                        // Gap
+                        {
+                            "Header": "[Gap]",
+                            "Width": 150,
+                            "Template": {
+                                "BlockType": "dock",
+                                "Padding": "24, 0",
+                                "HorizontalAlignment": "Center",
+                                "Items": [
+                                    {
+                                        "BlockType": "text",
+                                        "Source": "{Item.Time}",
+                                        "RenderIf": "{Item.Position, Converter=NumberNotEquals, Parameter=1}",
+                                        "HorizontalAlignment": "Center",
+                                        "VerticalAlignment": "Center",
+                                        "Triggers": [
+                                            {
+                                                "Condition": "{BlackText}",
+                                                "Setters": [
+                                                    {
+                                                        "Property": "Foreground",
+                                                        "Value": "{Black}"
+                                                    }
+                                                ]
+                        
+                                            }
+                                        ],
+                                        "TextOptions": {
+                                            "FontName": "{FontNameDefault}",
+                                            "HorizontalAlignment": "Center"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+
+                        // Points
+                        {
+                            "Header": "[Pts]",
+                            "Width": 120,
+                            "Template": {
+                                "BlockType": "dock",
+                                "Padding": "24, 0",
+                                "HorizontalAlignment": "Center",
+                                "Items": [
+                                    {
+                                        "BlockType": "text",
+                                        "Source": "{Item.DriverPointsString}",
+                                        "HorizontalAlignment": "Center",
+                                        "VerticalAlignment": "Center",
+                                        "Triggers": [
+                                            {
+                                                "Condition": "{BlackText}",
+                                                "Setters": [
+                                                    {
+                                                        "Property": "Foreground",
+                                                        "Value": "{Black}"
+                                                    }
+                                                ]
+                        
+                                            }
+                                        ],
+                                        "TextOptions": {
+                                            "FontName": "{FontNameDefault}",
+                                            "FontSize": 80,
+                                            "HorizontalAlignment": "Center"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+
+}

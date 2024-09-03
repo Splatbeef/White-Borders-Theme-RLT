@@ -1,0 +1,25 @@
+{
+    "BlockRoot": {
+        "Name": "root",
+        "BlockType": "stack",
+        "Items": [
+            {
+                "Name": "bg",
+                "BlockType": "image", 
+                "Source": "bg/{ChampionshipType}/border2.png",
+                "Triggers": [
+                    {
+                        "Condition": "{AddSponsors, Converter=BoolReverse}",
+                        "Setters": [
+                            {
+                                "Property": "Source",
+                                "Value": "bg/border_blank2.png"
+                            }
+                        ]
+
+                    }
+                ]
+            }
+        ]
+    }
+}
