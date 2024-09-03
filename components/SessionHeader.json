@@ -1,0 +1,106 @@
+{
+    "ComponentName": "SessionHeader",
+    "BlockType": "stack",
+    "Orientation": "Vertical",
+    "Items": [
+        {
+            "BlockType": "image",
+            "Source": "league_logos/{ChampionshipType}/leaguelogo.png",
+            "HorizontalAlignment": "Center",
+            "Height": 684,
+            "MaxWidth": 2631,
+            "Triggers": [
+                {
+                    "Condition": "{AddSponsors, Converter=BoolReverse}",
+                    "Setters": [
+                        {
+                            "Property": "Source",
+                            "Value": "league_logos/{ChampionshipType}/serieslogo.png"
+                        }
+                    ]
+
+                },
+                {
+                    "Condition": "{ChampionshipType, Converter=StringEquals, Parameter=Generic}",
+                    "Setters": [
+                        {
+                            "Property": "Source",
+                            "Value": "{Season.LeagueInfo.LeagueLogo}"
+                        }
+                    ]                    
+                }
+            ],
+        },
+        {
+            "BlockType": "dock",
+            "Orientation": "Horizontal",
+            "Spacing": 50,
+            "Items": [
+                {
+                    "BlockType": "image",
+                    "Source": "{Session.Track.Nation.LogotypePath}",
+                    "HorizontalAlignment": "Left",
+                    "VerticalAlignment": "Top"
+                },
+                {
+                    "BlockType": "stack",
+                    "Orientation": "Vertical",
+                    "HorizontalAlignment": "Left",
+                    "MarginTop": 60,
+                    "Items":[
+                        {
+                            "BlockType": "text",
+                            "Source": "R{Event.Position}: {Session.SessionType} Results",
+                            "FontName": "{FontNameDefault}",
+                            "FontSize": 200,
+                            "Triggers": [
+                                {
+                                    "Condition": "{BlackHeaders}",
+                                    "Property": "Foreground",
+                                    "Value": "{Black}"
+                                },
+                                {
+                                    "Condition": "{Session.SessionType}",
+                                    "ConditionValue": "Qualification",
+                                    "Property": "Source",
+                                    "Value": "R{Event.Position}: Qualifying"
+                                }
+                            ]
+                        },
+                        {
+                            "BlockType": "text",
+                            "Source": "{Session.Track.CircuitName}",
+                            "FontName": "{FontNameDefault}",
+                            "FontSize": 200,
+                            "Triggers": [
+                                {
+                                    "Condition": "{BlackHeaders}",
+                                    "Property": "Foreground",
+                                    "Value": "{Black}"
+                                }
+                            ]
+                        }
+
+                    ]
+                }                
+            ]
+        },
+        {
+            "BlockType": "shape",
+            "Width": 2631,
+            "Height": 20,
+            "ShapeOptions": {
+                "ShapeType": "rectangle",
+                "Fill": "{White}",
+                "Triggers": [
+                    {
+                        "Condition": "{BlackHeaders}",
+                        "Property": "Fill",
+                        "Value": "{Black}"
+                    }
+                ]
+            }
+        },
+    ]
+    
+ }

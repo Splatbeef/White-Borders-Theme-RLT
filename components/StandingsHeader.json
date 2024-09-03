@@ -1,0 +1,134 @@
+{
+    "ComponentName": "StandingsHeader",
+    "BlockType": "stack",
+    "Orientation": "Vertical",
+    "MarginBottom": 50,
+    "Width": 5689,
+    "Items": [
+        {
+            "BlockType": "dock",
+            "Orientation": "Horizontal",
+            "Spacing": 20,
+            "MarginBottom": 50,
+            "Items": [
+                {
+                    "BlockType": "image",
+                    "Source": "league_logos/{ChampionshipType}/leaguelogo.png",
+                    "HorizontalAlignment": "Left",
+                    "Height": 500,
+                    "Triggers": [
+                        {
+                            "Condition": "{AddSponsors, Converter=BoolReverse}",
+                            "Setters": [
+                                {
+                                    "Property": "Source",
+                                    "Value": "league_logos/{ChampionshipType}/serieslogo.png"
+                                }
+                            ]
+        
+                        },
+                        {
+                            "Condition": "{ChampionshipType, Converter=StringEquals, Parameter=Generic}",
+                            "Setters": [
+                                {
+                                    "Property": "Source",
+                                    "Value": "{Season.LeagueInfo.LeagueLogo}"
+                                }
+                            ]                    
+                        }
+                    ]
+                },
+                {
+                    "BlockType": "dock",
+                    "Orientation": "Vertical",
+                    "HorizontalAlignment": "Left",
+                    "MarginLeft": 100,
+                    "Items": [
+                        {
+                            "BlockType": "text",
+                            "Source": "{Season.Name}",
+                            "FontSize": 200,
+                            "Triggers": [
+                                {
+                                    "Condition": "{BlackHeaders}",
+                                    "Property": "Foreground",
+                                    "Value": "{Black}"
+                                }
+                            ]
+                        },
+                        {
+                            "BlockType": "text",
+                            "Source": "Round {Season.SeasonCurrentNumberEvent} of {Season.SeasonOverallNumberEvents}",
+                            "FontSize": 200,
+                            "Height": 220,
+                            "VerticalAlignment": "Bottom",
+                            "Triggers": [
+                                {
+                                    "Condition": "{BlackHeaders}",
+                                    "Property": "Foreground",
+                                    "Value": "{Black}"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "BlockType": "dock",
+                    "Orientation": "Vertical",
+                    "HorizontalAlignment": "Right",
+                    //"MarginLeft": 100,
+                    "Items": [
+                        {
+                            "BlockType": "text",
+                            "Source": "<Type>",
+                            "FontSize": 200,
+                            "Triggers": [
+                                {
+                                    "Condition": "<Type>",
+                                    "ConditionValue": "Teams'",
+                                    "ConditionAnd": "{ConstructorsTeams}",
+                                    "Property": "Source",
+                                    "Value": "Constructors'"
+                                }
+                            ]
+                        },
+                        {
+                            "BlockType": "text",
+                            "Source": "Standings",
+                            "VerticalAlignment": "Bottom",
+                            "FontSize": 200,
+                            "Height": 220,
+                            "TextOptions": {
+                                "VerticalAlignment": "Top"
+                            },
+                            "Triggers": [
+                                {
+                                    "Condition": "{BlackHeaders}",
+                                    "Property": "Foreground",
+                                    "Value": "{Black}"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "BlockType": "shape",
+                "Height": 20,
+                "Width": 5689,
+                "ShapeOptions": {
+                    "ShapeType": "rectangle",
+                    "Fill": "{White}",
+                    "Triggers": [
+                        {
+                            "Condition": "{BlackHeaders}",
+                            "Property": "Fill",
+                            "Value": "{Black}"
+                        }
+                    ]
+                }
+        }    
+    ]
+    
+ }

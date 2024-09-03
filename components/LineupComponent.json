@@ -1,0 +1,105 @@
+{
+    "ComponentName": "LineupComponent",
+    "BlockType": "dock",
+    "Orientation": "Vertical",
+    "Items": [
+        {
+            "BlockType": "component",
+            "Component": "TeamCellComponent"
+        },
+        // Team color line
+        {
+            "BlockType": "shape",
+            "Height": 50,
+            "Width": 2834,
+            "MarginTop": 20,
+            "ShapeOptions": {
+                "ShapeType": "rectangle",
+                "Fill": "{Item.Team.Color}"
+            }
+        },
+        {
+            "BlockType": "shape",
+            "Height": 30,
+            "Width": 2834,
+            "MarginBottom": 20,
+            "ShapeOptions": {
+                "ShapeType": "rectangle",
+                "Fill": "{Item.Team.SecondaryColor}"
+            }
+        },
+        // Drivers
+        {
+            "BlockType": "dock",
+            "Orientation": "Horizontal",
+            "Items": [
+                {
+                    "BlockType": "stack",
+                    "Orientation": "Horizontal",
+                    "HorizontalAlignment": "Left",
+                    "Items": [
+                        {
+                            "BlockType": "image",
+                            "Height": 140,
+                            "MarginRight": 20,
+                            "ImageOptions": {
+                                "Path": "{Item.Line0.Driver.Nationality.LogotypePath}"
+                            }
+                        },
+                        {
+                            "BlockType": "text",
+                            "Source": "{Item.Line0.Driver.Name}",
+                            "FontSize": "{FontSizeStandings}",
+                            "Triggers": [
+                                {
+                                    "Condition": "{UseRealName}",
+                                    "Property": "Source",
+                                    "Value": "{Item.Line0.Driver.RealName}"
+                                }
+                            ]
+                        },
+                        {
+                            "BlockType": "text",
+                            "Source": "#{Item.Line0.Driver.RaceNumber}",
+                            "FontSize": "{FontSizeStandings}",
+                            "MarginLeft": 20
+                        }
+                    ]
+                },
+                {
+                    "BlockType": "stack",
+                    "Orientation": "Horizontal",
+                    "HorizontalAlignment": "Right",
+                    "Items": [
+                        {
+                            "BlockType": "text",
+                            "Source": "{Item.Line1.Driver.Name}",
+                            "FontSize": "{FontSizeStandings}",
+                            "Triggers": [
+                                {
+                                    "Condition": "{UseRealName}",
+                                    "Property": "Source",
+                                    "Value": "{Item.Line1.Driver.RealName}"
+                                }
+                            ]
+                        },
+                        {
+                            "BlockType": "text",
+                            "Source": "#{Item.Line1.Driver.RaceNumber}",
+                            "FontSize": "{FontSizeStandings}",
+                            "MarginLeft": 20
+                        },
+                        {
+                            "BlockType": "image",
+                            "Height": 140,
+                            "MarginLeft": 20,
+                            "ImageOptions": {
+                                "Path": "{Item.Line1.Driver.Nationality.LogotypePath}"
+                            }
+                        },
+                    ]
+                },
+            ]
+        }
+    ]
+}

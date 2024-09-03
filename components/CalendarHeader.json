@@ -1,0 +1,58 @@
+{
+    "ComponentName": "CalendarHeader",
+    "BlockType": "stack",
+    "Orientation": "Vertical",
+    "Items": [
+        {
+            "BlockType": "image",
+            "Source": "league_logos/{ChampionshipType}/leaguelogo.png",
+            "HorizontalAlignment": "Left",
+            "Height": 684,
+            "MaxWidth": 2631,
+            "Triggers": [
+                {
+                    "Condition": "{AddSponsors, Converter=BoolReverse}",
+                    "Setters": [
+                        {
+                            "Property": "Source",
+                            "Value": "league_logos/{ChampionshipType}/serieslogo.png"
+                        }
+                    ]
+
+                },
+                {
+                    "Condition": "{ChampionshipType, Converter=StringEquals, Parameter=Generic}",
+                    "Setters": [
+                        {
+                            "Property": "Source",
+                            "Value": "{Season.LeagueInfo.LeagueLogo}"
+                        }
+                    ]                    
+                }
+            ],
+        },
+        {
+            "BlockType": "text",
+            "Source": "{Season.Name}",
+            "FontSize": 200
+        },    
+        {
+            "BlockType": "shape",
+            "Width": 2631,
+            "Height": 20,
+            "MarginTop": 50,
+            "ShapeOptions": {
+                "ShapeType": "rectangle",
+                "Fill": "{White}",
+                "Triggers": [
+                    {
+                        "Condition": "{BlackHeaders}",
+                        "Property": "Fill",
+                        "Value": "{Black}"
+                    }
+                ]
+            }
+        },
+    ]
+    
+ }

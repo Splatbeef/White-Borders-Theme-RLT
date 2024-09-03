@@ -1,0 +1,52 @@
+{
+    "ComponentName": "PositionCellComponent",
+    "BlockType": "text",
+    "Source": "P<position>",
+    "Width": 140,
+    "FontName": "{FontNameDefault}",
+    "FontSize": "<Fontsize>",
+    "Triggers": [
+        {
+            "Condition": "{BlackText}",
+            "Property": "Foreground",
+            "Value": "{Black}"
+        },
+        {
+            "Condition": "<position>",
+            "ConditionValue":"-",
+            "Property": "Source",
+            "Value": "<position>"
+        },
+        {
+            "Condition": "<position>",
+            "ConditionValue":"1",
+            "ConditionAnd": "<colortop3>",
+            "Property": "Foreground",
+            "Value": "{FirstColor}"
+        },
+        {
+            "Condition": "<position>",
+            "ConditionValue":"2",            
+            "ConditionAnd": "<colortop3>",
+            "Property": "Foreground",
+            "Value": "{SecondColor}"
+        },
+        {
+            "Condition": "<position>",
+            "ConditionValue":"3",
+            "ConditionAnd": "<colortop3>",
+            "Property": "Foreground",
+            "Value": "{ThirdColor}"
+        },
+        {
+            "Condition": "<position>",
+            "ConditionValue":"1",
+            "ConditionAnd": "<colorquali>",
+            "Property": "Foreground",
+            "Value": "{Purple}"
+        }
+    ],
+    "TextOptions": {
+        "HorizontalAlignment": "Center"
+    }
+}

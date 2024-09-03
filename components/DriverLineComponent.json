@@ -1,0 +1,206 @@
+{
+    "ComponentName": "DriverLineComponent",
+    "BlockType": "dock",
+    "PaddingLeft": 12,
+    "PaddingRight": 4,
+    "Width": 1600,
+    "Triggers": [	
+        {
+            "Condition": "<version>",
+            "ConditionValue": "Standings",
+            "Property": "Width",
+            "Value": 3050
+        }
+    ],
+    "Items": [
+        
+        {
+            "BlockType": "stack",
+            "Height": "*",
+            "MarginLeft": 82,
+            "HorizontalAlignment": "Right",
+            "VerticalAlignment": "Center",
+            "Items": [
+                //teams block
+                {
+                    "BlockType": "dock",
+                    "VerticalAlignment": "Center",
+                    "Spacing": 8,
+                    "RenderIf": "{Season.LineupsBasedType, Converter=StringEquals, Parameter=Teams}",
+                    "Items": [
+                        //logo
+                        {
+                            "BlockType": "image",
+                            "Height": 100,
+                            "MarginRight": 0,
+                            "VerticalAlignment": "Center",
+                            "HorizontalAlignment": "Right",
+                            "Source": "{Item.Team.LogotypePath}",
+                            "ImageOptions": {
+                                "VerticalAlignment": "Center",
+                            },
+                            "Triggers": [
+                                {
+                                    "Condition": "<version>",
+                                    "ConditionValue": "Standings",
+                                    "Property": "Height",
+                                    "Value": 120
+                                },
+                                {
+                                    "Condition": "{Item.SeatType}",
+                                    "ConditionValue": "Reserve",
+                                    "ConditionAnd": "{ReservesSoloDrivers}",
+                                    "Property": "Source",
+                                    "Value": "driver_logos/{ChampionshipType}/{Item.Driver.Name}.png"
+                                }
+                            ]
+                        },
+                        //name
+                        {
+                            "BlockType": "text",
+                            "Source": "{Item.Team.Abbreviation}",
+                            "MarginRight": 12,
+                            "HorizontalAlignment": "Left",
+                            "VerticalAlignment": "Center",
+                            "FontName": "{FontNameDefault}",
+                            "Triggers": [
+                                {
+                                    "Condition": "{BlackText}",
+                                    "Setters": [
+                                        {
+                                            "Property": "Foreground",
+                                            "Value": "{Black}"
+                                        }
+                                    ]
+            
+                                },
+                                {
+                                    "Condition": "{UseTeamName}",
+                                    "ConditionOr": "<version>",
+                                    "ConditionOrValue": "Standings",
+                                    "Property": "Source",
+                                    "Value": "{Item.Team.Name}"
+                                },
+                                {
+                                    "Condition": "<version>",
+                                    "ConditionValue": "Standings",
+                                    "Property": "FontSize",
+                                    "Value": "{FontSizeStandings}"
+                                }
+                            ],
+                            "TextOptions": {
+                                "VerticalAlignment": "Center"
+                            }
+                        },
+
+                        
+                    ]
+                },
+                // Car-based block
+                {
+                    "BlockType": "stack",
+                    "VerticalAlignment": "Center",
+                    "Spacing": 8,
+                    "RenderIf": "{Season.LineupsBasedType, Converter=StringEquals, Parameter=Cars}",
+                    "Items": [
+                        {
+                            "BlockType": "text",
+                            "Source": "",
+                            "MarginRight": 8,
+                            "FontName": "{FontNameDefault}",
+                            "HorizontalAlignment": "Left",
+                            "VerticalAlignment": "Center",
+                            "TextOptions": {
+                                "VerticalAlignment": "Center"
+                            },
+                            "Triggers": [
+                                {
+                                    "Condition": "{UseTeamName}",
+                                    "ConditionOr": "<version>",
+                                    "ConditionOrValue": "Standings",
+                                    "Property": "Source",
+                                    "Value": "{Item.Car.Name}"
+                                },
+                                {
+                                    "Condition": "<version>",
+                                    "ConditionValue": "Standings",
+                                    "Property": "FontSize",
+                                    "Value": "{FontSizeStandings}"
+                                }
+                            ]
+                        },
+                        {
+                            "BlockType": "image",
+                            "MarginRight": 0,
+                            "Height": 100,
+                            "VerticalAlignment": "Center",
+                            "ImageOptions": {
+                                "Path": "{Item.Car.Vendor.LogotypePath}",
+                                "VerticalAlignment": "Center"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "BlockType": "stack",
+            "HorizontalAlignment": "Left",
+            "VerticalAlignment": "Center",
+            "Items": [
+                //flag
+                {
+                    "BlockType": "image",
+                    "Height": 100,
+                    "MarginRight": 12,
+                    "VerticalAlignment": "Center",
+                    "ImageOptions": {
+                        "Path": "{Item.Driver.Nationality.LogotypePath}",
+                        "VerticalAlignment": "Center"
+                    },
+                    "Triggers": [
+                        {
+                            "Condition": "<version>",
+                            "ConditionValue": "Standings",
+                            "Property": "Height",
+                            "Value": 120
+                        }
+                    ]
+                },
+
+                //name
+                {
+                    "BlockType": "text",
+                    "MarginLeft": 8,
+                    "Source": "{Item.Driver.Name}",
+                    "HorizontalAlignment": "Left",
+                    "VerticalAlignment": "Center",
+                    "FontName": "{FontNameDefault}",
+                    "Triggers": [
+                        {
+                            "Condition": "{BlackText}",
+                            "Setters": [
+                                {
+                                    "Property": "Foreground",
+                                    "Value": "{Black}"
+                                }
+                            ]
+    
+                        },
+                        {
+                            "Condition": "{UseRealName}",
+                            "Property": "Source",
+                            "Value": "{Item.Driver.RealName}"
+                        },
+                        {
+                            "Condition": "<version>",
+                            "ConditionValue": "Standings",
+                            "Property": "FontSize",
+                            "Value": "{FontSizeStandings}"
+                        }
+                    ]
+                }
+            ]
+        },
+    ]
+}

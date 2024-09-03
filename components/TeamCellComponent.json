@@ -1,0 +1,48 @@
+{
+    "ComponentName": "TeamCellComponent",
+    "BlockType": "dock",
+    "Orientation": "Horizontal",
+    "Width": 3000,
+    "Spacing": 50,
+    "Items":[
+        {
+            "BlockType": "image",
+            "VerticalAlignment": "Center",
+            "HorizontalAlignment": "Left",
+            "Height": 240,
+            "ImageOptions": {
+                "VerticalAlignment": "Bottom",
+                "Path": "{Item.Team.LogotypePath}"
+            }
+        },
+        {
+            "BlockType": "text",
+            "Source": "{Item.Team.Name}",
+            "FontSize": "{FontSizeTeams, Converter=NumberSubtract, Parameter=30}",
+            "VerticalAlignment": "Bottom",
+            "MarginBottom": 50,
+            "TextOptions": {
+                "VerticalAlignment": "Center",
+                "HorizontalAlignment": "Center"
+            },
+            "Triggers":[
+                {
+                    "Condition": "{Item.Team.Name}",
+                    "ConditionValue": "Solo Driver",
+                    "Property": "Source",
+                    "Value": "Solo Drivers"
+                }
+            ]
+        },
+        {
+            "BlockType": "image",
+            "VerticalAlignment": "Center",
+            "HorizontalAlignment": "Right",
+            "Height": 240,
+            "ImageOptions": {
+                "Path": "{Item.Team.Nation.LogotypePath}"
+            }
+        }
+
+    ]
+}
