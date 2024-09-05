@@ -26,7 +26,7 @@ Finally, enable the "add sponsors/league logos" option in the theme settings.
 ## 3. Adding custom teams and logos
 
 On the database tab, create a team and set the name and UniqueId. Example: Name: "Andretti Global", UniqueId: "andretti.global.2024".
-To add a logo for your new team, add a png image with the UniqueId as name to the images/logotypes/teams folder. Example: "andretti.global.2024.png". The logo shows up after restarting your RLT application.
+To add a logo for your new team, add a png image with the UniqueId as name to the images/logotypes/teams folder of the app root. Example: "andretti.global.2024.png". The logo shows up after restarting your RLT application.
 
 ## 4. Track maps
 
