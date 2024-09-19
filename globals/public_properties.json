@@ -42,6 +42,13 @@
             "Category": "General"
         },
         {
+            "Name": "StandingsLogoOnly",
+            "PublicName": "Use only logo on driver standings renders",
+            "Type": "Bool",
+            "DefaultValue": false,
+            "Category": "General"
+        },
+        {
             "Name": "UseRealName",
             "PublicName": "Use driver real names",
             "Description": "Replaces the driver name with the driver real name",
