@@ -63,6 +63,7 @@
                             "HorizontalAlignment": "Left",
                             "VerticalAlignment": "Center",
                             "FontName": "{FontNameDefault}",
+                            "RenderIf": "{StandingsLogoOnly, Converter=BoolReverse}",
                             "Triggers": [
                                 {
                                     "Condition": "{BlackText}",
@@ -110,6 +111,7 @@
                             "FontName": "{FontNameDefault}",
                             "HorizontalAlignment": "Left",
                             "VerticalAlignment": "Center",
+                            "RenderIf": "{StandingsLogoOnly, Converter=BoolReverse}",
                             "TextOptions": {
                                 "VerticalAlignment": "Center"
                             },
