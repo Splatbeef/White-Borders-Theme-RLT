@@ -7,6 +7,8 @@
                 "Name": "bg",
                 "BlockType": "image", 
                 "Source": "bg/{ChampionshipType}/border2.png",
+                "Height": 4125,
+                "Width": 6190,
                 "Triggers": [
                     {
                         "Condition": "{AddSponsors, Converter=BoolReverse}",
