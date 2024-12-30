@@ -43,7 +43,7 @@
         },
         {
             "Name": "StandingsLogoOnly",
-            "PublicName": "Use only logo on driver standings renders",
+            "PublicName": "Use only team logo on driver standings renders",
             "Type": "Bool",
             "DefaultValue": false,
             "Category": "General"
@@ -57,6 +57,14 @@
             "Category": "General"
         },
         {
+            "Name": "UseFullCircuitName",
+            "PublicName": "Use Full Circuit Names in Results",
+            "Description": "Switches the short version of circuit names for the full version in race and qualifying results, and calendar renders, also decreases the font size",
+            "Type": "Bool",
+            "DefaultValue": false,
+            "Category": "General"
+        },
+        {
             "Name": "ReservesSoloDrivers",
             "PublicName": "Reserves are Solo Drivers",
             "Description": "Changes the reserves render to act like they are teamless fulltime drivers",
@@ -65,19 +73,27 @@
             "Category": "General"
         },
         {
+            "Name": "CalendarFontSize",
+            "PublicName": "Change font size on calendar/event info renders",
+            "Description": "Changes the font size on your calendar renders so your track names can always fit correctly",
+            "Type": "Integer",
+            "DefaultValue": 250,
+            "Category": "Calendar/Event Information"
+        },
+        {
             "Name": "RaceDistance",
             "PublicName": "Race Distance (KM)",
             "Description": "Fill in the race distance in KM. This gets converted to laps. Default is 305, a full distance F1 Grand Prix",
             "Type": "Integer",
             "DefaultValue": 305,
-            "Category": "Event Information"
+            "Category": "Calendar/Event Information"
         },
         {
             "Name": "RaceLength",
             "PublicName": "Race Length (alternative)",
             "Description": "Overrides the race distance value above. Leave empty if you want to use the race distance in KM",
             "Type": "String",
-            "Category": "Event Information"
+            "Category": "Calendar/Event Information"
         },
         {
             "Name": "FuelInfo",
@@ -85,7 +101,7 @@
             "Description": "Adds a recommended fuel value to the event info render. Leave at 0 to disable",
             "Type": "Integer",
             "DefaultValue": 0,
-            "Category": "Event Information"
+            "Category": "Calendar/Event Information"
         }
     ],
     "Categories": [
@@ -93,7 +109,7 @@
             "Name": "General"
         },
         {
-            "Name": "Event Information"
+            "Name": "Calendar/Event Information"
         }
     ]
 }
