@@ -1,5 +1,5 @@
-# drcwhitebordersRLT
-DRC White Borders RLT theme created by Splatbeef
+# splatbeef.whiteborders RLT
+White Borders RLT theme created by Splatbeef
 
 To contact me about the theme, please join the RLT Discord server and go to the relevant forum post in themes-discussion. https://discord.gg/XXjCetGJ8F
 
