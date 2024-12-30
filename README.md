@@ -12,6 +12,7 @@ Currently available:
 - F1 2023
 - Super Formula
 - ACC GT3
+- GT World Challenge
 
 The "Generic" championship uses generic backgrounds and your database logo.
 
