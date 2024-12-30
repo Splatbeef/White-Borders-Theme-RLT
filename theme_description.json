@@ -1,6 +1,6 @@
 {
-  "ThemeId": "splatbeef.whiteborders",
-  "Name": "White Borders",
+  "ThemeId": "splatbeef.whiteborderstest",
+  "Name": "White Borders TEST VERSION",
   "Author": "Splatbeef",
   "Description": "Theme for use in various championships",
   "Version": "1.1.0",
@@ -9,6 +9,11 @@
       "Type": "General",
       "Url": "https://discord.gg/JhCSWqMFp4",
       "Caption": "Join DRC"
+    },
+    {
+      "Type": "ThemeRepository",
+      "Url": "https://github.com/Splatbeef/White-Borders-Theme-RLT/blob/main/README.md",
+      "Caption": "READ ME"
     }
   ]
 }
