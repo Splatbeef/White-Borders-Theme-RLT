@@ -24,30 +24,44 @@
                         "BlockType": "dock",
                         "Orientation": "Horizontal",
                         "Width": 2631,
+                        "Height": 270,
                         "Items": [
                             {
                                 "BlockType": "text",
                                 "Source": "R{Item.Position}",
                                 "FontSize": 200,
-                                "Width": 400
+                                "Width": 400,
+                                "VerticalAlignment": "Center"
                             },
                             {
                                 "BlockType": "image",
                                 "Source": "{Item.Track.Nation.LogotypePath}",
-                                "Height": 200,
+                                "Height": 240,
                                 "VerticalAlignment": "Center"
                             },
                             {
                                 "BlockType": "text",
                                 "Source": "{Item.Track.CircuitName}",
-                                "FontSize": 150,
+                                "FontSize": "{CalendarFontSize, Converter=NumberDivide, Parameter=2}",
                                 "VerticalAlignment": "Center",
-                                "MarginLeft": 50
+                                "Width": 1515,
+                                "TextOptions": {
+                                    "Wrap": true
+                                },
+                                "MarginLeft": 50,
+                                "Triggers": [
+                                    {
+                                        "Condition": "{UseFullCircuitName}",
+                                        "Property": "Source",
+                                        "Value": "{Item.Track.CircuitFullName}"
+                                    }
+                                ]
                             },
                             {
                                 "Name": "Date",
                                 "BlockType": "text",
                                 "HorizontalAlignment": "Right",
+                                "VerticalAlignment": "Center",
                                 "Source": "{Item.Date, Converter=DateToDayOfMonth}-{Item.Date, Converter=DateToMonth}",
                                 "Foreground": "{White}",
                                 "FontSize": 150,

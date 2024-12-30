@@ -112,8 +112,11 @@
                                         "Name": "Track",
                                         "BlockType": "text",
                                         "Source": "{Item.Track.CircuitFullName}",
-                                        "FontSize": 250,
-                                        "VerticalAlignment": "Center"
+                                        "FontSize": "{CalendarFontSize}",
+                                        "VerticalAlignment": "Center",
+                                        "TextOptions": {
+                                            "Wrap": true
+                                        }
                                     }
                                 ]
                             },
@@ -136,8 +139,8 @@
                                                 "ImageOptions": {
                                                     "Path": "{Item.Track.LogotypePath}"
                                                 },
-                                                "Width": 4000,
-                                                "MaxHeight": 2400,
+                                                "MaxWidth": 4000,
+                                                "Height": 2200,
                                                 "VerticalAlignment": "Top",
                                                 "HorizontalAlignment": "Center"
                                             }
