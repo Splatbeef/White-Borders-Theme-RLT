@@ -5,7 +5,7 @@
             "PublicName": "Championship Type",
             "Description": "Changes the logos based on what championship you are running",
             "Type": "Enum",
-            "EnumValues": ["Generic", "ACC GT3", "F1 2024", "F1 2023", "Super Formula"],
+            "EnumValues": ["Generic", "ACC GT3", "F1 2024", "F1 2023", "Super Formula", "GT World Challenge"],
             "DefaultValue" : "Generic",
             "Category": "General"
         },
