@@ -6,7 +6,7 @@
         {
             "BlockType": "image",
             "Source": "league_logos/{ChampionshipType}/leaguelogo.png",
-            "HorizontalAlignment": "Left",
+            "HorizontalAlignment": "Center",
             "Height": 684,
             "MaxWidth": 2631,
             "Triggers": [

@@ -72,11 +72,27 @@
                             "Source": "{Session.Track.CircuitName}",
                             "FontName": "{FontNameDefault}",
                             "FontSize": 200,
+                            "Width": 2200,
+                            "Height": 200,
+                            "VerticalAlignment": "Top",
+                            "TextOptions": {
+                                "Wrap": true
+                            },
                             "Triggers": [
                                 {
-                                    "Condition": "{BlackHeaders}",
-                                    "Property": "Foreground",
-                                    "Value": "{Black}"
+                                    "Condition": "{UseFullCircuitName}",
+                                    "Setters": [
+                                        {
+                                            "Property": "FontSize",
+                                            "Value": 100
+                                        },
+                                        {
+                                            "Property": "Source",
+                                            "Value": "{Session.Track.CircuitFullName}"
+                                        }
+                                        
+                                    ]
+                                    
                                 }
                             ]
                         }
@@ -91,14 +107,7 @@
             "Height": 20,
             "ShapeOptions": {
                 "ShapeType": "rectangle",
-                "Fill": "{White}",
-                "Triggers": [
-                    {
-                        "Condition": "{BlackHeaders}",
-                        "Property": "Fill",
-                        "Value": "{Black}"
-                    }
-                ]
+                "Fill": "{White}"
             }
         },
     ]
